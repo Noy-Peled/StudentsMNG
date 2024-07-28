@@ -1,15 +1,15 @@
 import React from "react";
-import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { getAllStudents } from "./StudentService";
 
 function Student_Data() {
   const [students, setstudents] = useState();
+
+  //
   const fetchData = async () => {
-    const { data: fetchStudents } = await axios.get(
-      "http://localhost:8080/api/students"
-    );
-    setstudents(fetchStudents);
+    const students = await getAllStudents();
+    setstudents(students);
   };
 
   useEffect(() => {
