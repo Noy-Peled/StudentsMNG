@@ -12,7 +12,7 @@ function Add_Student() {
 
   const navigate = useNavigate();
 
-  // Create new object with the data from the inputs, sending it to the server and navigate back to main page
+  // Create new object with the data from the inputs, activate function from service and navigate back to main page
   const sendData = async () => {
     const obj = {
       Name: newStudent.Name,
@@ -29,7 +29,7 @@ function Add_Student() {
     navigate("/");
   };
 
-  // return div with inputs and button, extract the data from inputs and place it in state, on click activate the send data function
+  // return div with inputs and button, extract the data from inputs and place it in state, on click activate the sendData function
   return (
     <div>
       <h4>Add Students</h4>

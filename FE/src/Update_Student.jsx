@@ -9,15 +9,18 @@ function Update_Student() {
 
   const navigate = useNavigate();
 
+  // fetch the data and set student's state
   const fetchData = async () => {
     const data = await getAllStudents();
     setstudents(data);
   };
 
+  // on load activate fetch
   useEffect(() => {
     fetchData();
   }, []);
 
+  // set the object's values with new value if exists or old value if not, activate function from service and navigate back to main page
   const sendData = async () => {
     const obj = {
       Name: newStudent?.Name || userToupdate.Name,
@@ -36,6 +39,8 @@ function Update_Student() {
     navigate("/");
   };
 
+  // return div with inputs, select with option for each student and button
+  // extract the data from inputs and place it in state, on click activate the sendData function
   return (
     <div>
       <h4>Update Students</h4>
